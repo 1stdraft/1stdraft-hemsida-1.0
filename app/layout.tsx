@@ -1,3 +1,4 @@
+import Navbar from 'components/Navbar'
 import 'tailwindcss/tailwind.css'
 
 export default function RootLayout({
@@ -7,7 +8,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className='max-w-3xl mx-auto'>
+        <header>
+          <Navbar />
+        </header>
+        <main>{children}</main>
+        </body>
     </html>
   )
 }
