@@ -7,8 +7,9 @@ import {
 
 import { createClient, groq } from 'next-sanity'
 import { Artist } from 'types/Artist'
-import { Settings } from 'types/Settings'
+import { Setting } from 'types/Setting'
 import imageUrlBuilder from '@sanity/image-url'
+import { Song } from 'types/Song'
 
 const urlBuilder = imageUrlBuilder({ 
     projectId: projectId,
@@ -34,6 +35,7 @@ export async function getArtists(): Promise<Artist[]> {
             slug,
             image,
             instagram,
+            spotify,
             about
         }`
     )
@@ -55,6 +57,7 @@ export async function getArtist(slug: string): Promise<Artist> {
             slug,
             image,
             instagram,
+            spotify,
             about[]
         }`,
         { slug }
@@ -62,7 +65,7 @@ export async function getArtist(slug: string): Promise<Artist> {
     
 }
 
-export async function getSettings(): Promise<Settings[]> {
+export async function getSongs(): Promise<Song[]> {
     const client = createClient({
         projectId: projectId,
         dataset: dataset,
@@ -70,16 +73,81 @@ export async function getSettings(): Promise<Settings[]> {
     })
 
     return client.fetch(
-        groq`*[_type == "artist"]{
+        groq`*[_type == "song"] | order(releasedate desc)[0..9]{
             _id,
             _createdAt,
-            name,
-            "slug": slug.current,
-            "image": image.asset->url,
-            instagram,
-            about
+            title,
+            slug,
+            artist,
+            coverImage,
+            youtube,
+            spotify,
+            releasedate,
+            credits
         }`
     )
+    
+}
+
+export async function getAllSongs(): Promise<Song[]> {
+    const client = createClient({
+        projectId: projectId,
+        dataset: dataset,
+        apiVersion: apiVersion
+    })
+
+    return client.fetch(
+        groq`*[_type == "song"] | order(releasedate desc){
+            _id,
+            _createdAt,
+            title,
+            slug,
+            artist,
+            coverImage,
+            youtube,
+            spotify,
+            releasedate,
+            credits
+        }`
+    )
+    
+}
+
+
+export async function getSong(slug: string): Promise<Song> {
+    const client = createClient({
+        projectId: projectId,
+        dataset: dataset,
+        apiVersion: apiVersion
+    })
+
+    return client.fetch(
+        groq`*[_type == "song" && slug.current == $slug][0]{
+            _id,
+            _createdAt,
+            title,
+            slug,
+            artist->,
+            coverImage,
+            youtube,
+            spotify,
+            releasedate,
+            credits[]
+        }`,
+        { slug }
+    )
+    
+}
+
+export async function getSettings(): Promise<Setting> {
+    const client = createClient({
+        projectId: projectId,
+        dataset: dataset,
+        apiVersion: apiVersion
+    })
+
+    return (await client.fetch(groq`*[_type == "settings"][0]`)) || {}
+
     
 }
 

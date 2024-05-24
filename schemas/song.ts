@@ -3,6 +3,7 @@ import { format, parseISO } from 'date-fns'
 import { defineField, defineType } from 'sanity'
 
 import artistType from './artist'
+import artist from './artist'
 
 /**
  * This file is the schema definition for a post.
@@ -32,7 +33,7 @@ export default defineType({
       name: 'artist',
       title: 'Artist',
       type: 'reference',
-      to: [{ type: artistType.name }],
+      to: [{ type: artist.name }],
     }),
     defineField({
       name: 'credits',
@@ -45,10 +46,7 @@ export default defineType({
     defineField({
       name: 'coverImage',
       title: 'Cover Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
+      type: 'image'
     }),
     defineField({
       name: 'releasedate',

@@ -8,11 +8,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='max-w-3xl mx-auto'>
+      <body className=''>
         <header>
           <Navbar />
         </header>
-        <main>{children}</main>
+        <main className='flex justify-center'>{children}</main>
         </body>
     </html>
   )

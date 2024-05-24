@@ -43,6 +43,11 @@ export default defineType({
       type: 'url'
     }),
     defineField({
+      name: 'youtube',
+      title: 'YouTube',
+      type: 'url'
+    }),
+    defineField({
       name: 'about',
       title: 'About',
       type: 'array',

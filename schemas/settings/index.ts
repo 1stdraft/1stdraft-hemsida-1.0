@@ -15,10 +15,8 @@ export default defineType({
   fields: [
     defineField({
       name: 'title',
-      description: 'This field is the title of your blog.',
       title: 'Title',
       type: 'string',
-      initialValue: demo.title,
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -27,7 +25,6 @@ export default defineType({
         'Used both for the <meta> description tag for SEO, and the blog subheader.',
       title: 'Description',
       type: 'array',
-      initialValue: demo.description,
       of: [
         defineArrayMember({
           type: 'block',
@@ -54,6 +51,15 @@ export default defineType({
         }),
       ],
       validation: (rule) => rule.max(155).required(),
+    }),
+    defineField({
+      name: 'about',
+      title: 'About',
+      description: 'About-texten',
+      type: 'array',
+      of: [
+        { type: 'block' }
+      ]
     }),
     defineField({
       name: 'ogImage',
