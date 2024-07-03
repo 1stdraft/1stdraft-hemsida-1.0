@@ -10,5 +10,6 @@ export type Song = {
     coverImage: string;
     spotify: string;
     youtube: string;
+    appleMusic: string;
     credits: PortableTextBlock[];
 }

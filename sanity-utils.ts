@@ -146,7 +146,12 @@ export async function getSettings(): Promise<Setting> {
         apiVersion: apiVersion
     })
 
-    return (await client.fetch(groq`*[_type == "settings"][0]`)) || {}
+    return (await client.fetch(groq`*[_type == "settings"][0]{
+        title,
+        about,
+        description,
+        about
+        }`)) || {}
 
     
 }

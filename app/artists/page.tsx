@@ -12,14 +12,12 @@ export default async function Aritsts() {
     return (
         <div className='grid md:grid-cols-2 lg:grid-cols-3 lg:w-1/2 gap-8 mx-2'>
         {artists.map((artist) => (
-            <div key={artist._id} className="max-w-sm rounded overflow-hidden shadow-lg hover:scale-95 transition">
-                <Link href={`/artists/${artist.slug.current}`}>
-            <Image className="w-full" src={urlFor(artist.image).width(512).height(512).url()} alt={artist.name} width={512} height={512}/>
             <div className="px-6 py-4">
-              <div className="font-bold text-xl">{artist.name}</div>
-            </div>
+            <Link key={artist._id} className="relative isolate flex flex-col justify-end overflow-hidden rounded-md w-full h-56 p-6" href={`/artists/${artist.slug.current}`}>
+			<Image src={urlFor(artist.image).width(1080).height(1080).url()} alt={artist.name} width={512} height={512} className='absolute inset-0 h-full w-full object-cover' />
+			<div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
+			<h3 className="z-10 mt-3 text-2xl text-white">{artist.name}</h3>
             </Link>
-          </div>
         ))}
         </div>
     )

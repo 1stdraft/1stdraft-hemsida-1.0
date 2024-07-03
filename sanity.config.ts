@@ -43,7 +43,6 @@ export default defineConfig({
       defaultDocumentNode: previewDocumentNode(),
     }),
     presentationTool({
-      locate,
       previewUrl: {
         draftMode: {
           enable: DRAFT_MODE_ROUTE,

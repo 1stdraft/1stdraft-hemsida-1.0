@@ -8,6 +8,7 @@ import IconSpotify from 'components/SpotifyIcon';
 import Link from 'next/link';
 import { Reference } from 'sanity';
 import { width } from 'components/OpenGraphImage';
+import IconYoutube from 'components/YoutubeIcon';
 
 type Props = {
     params: { slug: string }
@@ -23,7 +24,7 @@ export default async function SongPage({ params }: Props) {
             <div className='basis-1/2'>
                 <h1 className='text-bold text-5xl pb-5'>{song.title}</h1>
                 <Link className="flex justify-start items-center" href={`/artists/${song.artist.slug.current}`}>
-                <Image className='rounded-full' src={urlFor(song.artist.image).width(96).height(96).url()} width={48} height={48} />
+                <Image alt={song.artist.name} className='rounded-full' src={urlFor(song.artist.image).width(96).height(96).url()} width={48} height={48} />
                 <h2 className='p-3'>{song.artist.name}</h2>
                 </Link>
                 <div>
@@ -32,16 +33,17 @@ export default async function SongPage({ params }: Props) {
                     
                     <PortableText value={song.credits}/>
                 </div>
-                {/* <Link href={artist.spotify} className=" hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded items-center"> */}
-            <IconSpotify />
-            {/* </Link> */}
+                <div className='p-5'>
+                {/* <Link href={song.spotify} className="items-center">
+                <IconSpotify />
+                </Link> */}
+                </div>
             </div>
             
             
 
             <div className='basis-1/2'>
                     <Image src={urlFor(song.coverImage).width(1080).height(1080).url()} alt={song.title} width={512} height={512} className=''/>
-               
             </div>
             
         </div>

@@ -33,7 +33,7 @@ export default defineType({
       name: 'artist',
       title: 'Artist',
       type: 'reference',
-      to: [{ type: artist.name }],
+      to: [{ type: artistType.name }],
     }),
     defineField({
       name: 'credits',
@@ -57,6 +57,18 @@ export default defineType({
     defineField({
       name: 'spotify',
       title: 'Spotify Link',
+      type: 'url'
+
+    }),
+    defineField({
+      name: 'youtube',
+      title: 'Youtube Link',
+      type: 'url'
+
+    }),
+    defineField({
+      name: 'appleMusic',
+      title: 'Apple Music Link',
       type: 'url'
 
     }),
