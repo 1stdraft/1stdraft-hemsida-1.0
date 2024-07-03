@@ -1,5 +1,5 @@
 import HomePage from 'components/HomePage';
-import LatestSongs from 'components/LatestSongs';
+import HomePage2 from 'components/HomePage2';
 import SongModal from 'components/SongModal';
 import { Suspense, useEffect, useRef } from 'react';
 
@@ -19,7 +19,9 @@ export default function Home( {searchParams}: SearchParamProps ) {
 
     return (
         <>
-        <HomePage searchParams={searchParams} />
+        <HomePage />
+
+        {/* <HomePage2 /> */}
 
         {showModal && <Suspense fallback={<p>loading...</p>}> <SongModal id={songId}/> </Suspense>}
         </>

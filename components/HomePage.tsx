@@ -1,21 +1,15 @@
 "use client"
+
 import LatestSongs from 'components/LatestSongs';
-import { motion, useMotionValueEvent, useScroll, useSpring, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import {  useRef } from 'react';
 
 import AritstsSection from './ArtistsSection';
 import { Reveal } from './Reveal';
 
 
-type SearchParamProps = {
-  searchParams: Record<string, string> | null | undefined;
-};
 
-
-export default function HomePage( {searchParams}: SearchParamProps ) {
-
-    const showModal = searchParams?.modal === 'true';
-    const songId = searchParams.id;
+export default function HomePage(  ) {
 
     const songRef = useRef(null);
      const artistRef = useRef(null);
@@ -60,7 +54,7 @@ export default function HomePage( {searchParams}: SearchParamProps ) {
 
 
             <div className='h-screen grid place-content-center'>
-                <Reveal><h1 className='text-5xl'>hello@1stdraft.com</h1></Reveal>
+                <h1 className='text-5xl'>hello@1stdraft.eu</h1>
                 
             </div>
 
