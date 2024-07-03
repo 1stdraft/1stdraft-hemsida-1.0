@@ -1,14 +1,14 @@
+import { PortableText } from '@portabletext/react';
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import { width } from 'components/OpenGraphImage';
+import IconSpotify from 'components/SpotifyIcon';
+import IconYoutube from 'components/YoutubeIcon';
+import Image from 'next/image';
+import Link from 'next/link';
+import { ImageUrlBuilder } from 'next-sanity-image';
+import { Reference } from 'sanity';
 import { getArtist, getSong, urlFor } from 'sanity-utils'
 import { Artist } from 'types/Artist';
-import Image from 'next/image';
-import { PortableText } from '@portabletext/react';
-import { ImageUrlBuilder } from 'next-sanity-image';
-import { SanityImageSource } from '@sanity/image-url/lib/types/types';
-import IconSpotify from 'components/SpotifyIcon';
-import Link from 'next/link';
-import { Reference } from 'sanity';
-import { width } from 'components/OpenGraphImage';
-import IconYoutube from 'components/YoutubeIcon';
 
 type Props = {
     params: { slug: string }

@@ -1,6 +1,6 @@
-import { PortableText } from "next-sanity";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { PortableText } from "next-sanity";
 import { getSong, urlFor } from "sanity-utils";
 
 {/* <Image alt={song.artist.name} className='rounded-full' src={urlFor(song.artist.image).width(96).height(96).url()} width={48} height={48} />

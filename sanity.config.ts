@@ -18,7 +18,6 @@ import { defineConfig } from 'sanity'
 import { presentationTool } from 'sanity/presentation'
 import { structureTool } from 'sanity/structure'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
-
 import settingsType from 'schemas/settings'
 
 import schemas from './schemas'
@@ -40,7 +39,6 @@ export default defineConfig({
     structureTool({
       structure: settingsStructure(settingsType),
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
-      defaultDocumentNode: previewDocumentNode(),
     }),
     presentationTool({
       previewUrl: {

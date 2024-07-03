@@ -1,7 +1,7 @@
-import { modal } from '@nextui-org/react'
+import 'tailwindcss/tailwind.css'
+
 import Navbar from 'components/Navbar'
 import SmoothScroller from 'components/SmoothScroller'
-import 'tailwindcss/tailwind.css'
 
 export default function RootLayout({
   children,

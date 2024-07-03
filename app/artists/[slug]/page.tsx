@@ -1,11 +1,11 @@
-import { getArtist, urlFor } from 'sanity-utils'
-import { Artist } from 'types/Artist';
-import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
-import { ImageUrlBuilder } from 'next-sanity-image';
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import IconSpotify from 'components/SpotifyIcon';
+import Image from 'next/image';
 import Link from 'next/link';
+import { ImageUrlBuilder } from 'next-sanity-image';
+import { getArtist, urlFor } from 'sanity-utils'
+import { Artist } from 'types/Artist';
 
 type Props = {
     params: { slug: string }

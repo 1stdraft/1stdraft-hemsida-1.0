@@ -1,14 +1,13 @@
+import imageUrlBuilder from '@sanity/image-url'
 import {
     apiVersion,
     dataset,
     DRAFT_MODE_ROUTE,
     projectId,
   } from 'lib/sanity.api'
-
 import { createClient, groq } from 'next-sanity'
 import { Artist } from 'types/Artist'
 import { Setting } from 'types/Setting'
-import imageUrlBuilder from '@sanity/image-url'
 import { Song } from 'types/Song'
 
 const urlBuilder = imageUrlBuilder({ 

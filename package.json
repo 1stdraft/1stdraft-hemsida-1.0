@@ -15,9 +15,6 @@
     "singleQuote": true
   },
   "dependencies": {
-    "@headlessui/react": "^2.0.4",
-    "@nextui-org/modal": "^2.0.33",
-    "@nextui-org/react": "^2.3.6",
     "@portabletext/react": "^3.0.18",
     "@sanity/client": "6.18.2",
     "@sanity/image-url": "^1.0.2",
@@ -40,7 +37,7 @@
     "react-dom": "18.3.1",
     "sanity": "3.42.1",
     "sanity-plugin-asset-source-unsplash": "3.0.1",
-    "sanity-plugin-iframe-pane": "3.1.6",
+    "sanity-plugin-iframe-pane": "^3.1.6",
     "styled-components": "6.1.11",
     "swr": "2.2.5"
   },

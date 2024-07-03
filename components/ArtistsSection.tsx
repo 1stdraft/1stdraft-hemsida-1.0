@@ -1,8 +1,9 @@
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { getArtists } from 'sanity-utils'
 import { Artist } from 'types/Artist';
+
 import { Reveal } from './Reveal';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
 
 export default async function AritstsSection({x1, x2}: any) {
     const artists = await getArtists();

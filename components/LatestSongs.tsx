@@ -1,9 +1,10 @@
-import Link from "next/link";
-import { RevealCover } from "./RevealCover"
-import { getSongs, urlFor } from "sanity-utils";
-import { Suspense } from "react";
-import Image from 'next/image'
 import { motion, useMotionValueEvent } from "framer-motion";
+import Image from 'next/image'
+import Link from "next/link";
+import { Suspense } from "react";
+import { getSongs, urlFor } from "sanity-utils";
+
+import { RevealCover } from "./RevealCover"
 
 
 
@@ -13,8 +14,8 @@ export default async function LatestSongs({zoom}: any) {
     return (
         <div className="grid items-center">
             {songs.map((song, index) => (
-                <motion.div style={{ scale: zoom }} className={`${index % 2 ? 'justify-self-start' : 'justify-self-end'}`}>
-                <RevealCover width='fit-content' key={song._id} idx={index}>
+                <motion.div key={song._id} style={{ scale: zoom }} className={`${index % 2 ? 'justify-self-start' : 'justify-self-end'}`}>
+                <RevealCover width='fit-content'  idx={index}>
                 <div  className="shadow-md hover:shadow-lg transition">
                 <Link scroll={false} href={`/?modal=true&id=${song.slug.current}`} >
                 {/* <Link scroll={false} href="/?modal=true" > */}

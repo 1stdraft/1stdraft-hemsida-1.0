@@ -1,11 +1,9 @@
 "use client"
-import SongModal from 'components/SongModal';
-import { Suspense, useEffect, useRef } from 'react';
 import LatestSongs from 'components/LatestSongs';
 import { motion, useMotionValueEvent, useScroll, useSpring, useTransform } from 'framer-motion';
-import { getArtists } from 'sanity-utils';
+import {  useRef } from 'react';
+
 import AritstsSection from './ArtistsSection';
-import { user } from '@nextui-org/react';
 import { Reveal } from './Reveal';
 
 

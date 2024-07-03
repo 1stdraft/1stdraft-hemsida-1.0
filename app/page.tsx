@@ -1,7 +1,7 @@
+import HomePage from 'components/HomePage';
+import LatestSongs from 'components/LatestSongs';
 import SongModal from 'components/SongModal';
 import { Suspense, useEffect, useRef } from 'react';
-import LatestSongs from 'components/LatestSongs';
-import HomePage from 'components/HomePage';
 
 
 type SearchParamProps = {
