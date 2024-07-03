@@ -1,8 +1,7 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { getArtists, urlFor } from 'sanity-utils'
 import { Artist } from 'types/Artist';
-
-import Image from 'next/image';
 
 export default async function Aritsts() {
     const artists = await getArtists();
@@ -12,7 +11,6 @@ export default async function Aritsts() {
     return (
         <div className='grid md:grid-cols-2 lg:grid-cols-3 lg:w-1/2 gap-8 mx-2'>
         {artists.map((artist) => (
-            <div className="px-6 py-4">
             <Link key={artist._id} className="relative isolate flex flex-col justify-end overflow-hidden rounded-md w-full h-56 p-6" href={`/artists/${artist.slug.current}`}>
 			<Image src={urlFor(artist.image).width(1080).height(1080).url()} alt={artist.name} width={512} height={512} className='absolute inset-0 h-full w-full object-cover' />
 			<div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
