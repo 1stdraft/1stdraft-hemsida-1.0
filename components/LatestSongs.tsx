@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { getSongs, urlFor } from "sanity-utils";
 
-import { RevealCover } from "./RevealCover"
+import { RevealCover } from "./Reveal"
 
 
 

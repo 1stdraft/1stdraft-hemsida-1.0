@@ -26,27 +26,22 @@ import { createContext, useContext, useRef } from "react";
 // const y = useTransform(scrollYProgress, [0,1], ["0%", "75%"])
 
 
-type Scroll = {
-    ScrollYProgress: number;
-}
+type Scroll =  MotionValue;
 
-const defaultScroll: Scroll = {
-    ScrollYProgress: 0
-}
 
-const ScrollContext = createContext(0);
+const ScrollContext = createContext<MotionValue>(null);
 
 
 export const ScrollProvider = ({ children }: {children: React.ReactNode}) => {
 
     const { scrollYProgress: scrollYProgress } = useScroll();
 
-    const x = useTransform(scrollYProgress, [0,1], [-250, 250])
+    const x = useTransform(scrollYProgress, [0,1], [-500, 500])
 
     
     
     return (
-        <ScrollContext.Provider value={x}>
+        <ScrollContext.Provider value={scrollYProgress}>
             {children}
         </ScrollContext.Provider>
     )

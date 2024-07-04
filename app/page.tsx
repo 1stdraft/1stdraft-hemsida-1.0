@@ -1,11 +1,14 @@
-import AritstsSection from 'components/ArtistsSection';
+import ArtistsSection from 'components/ArtistsSection';
 import ContactSection from 'components/ContactSection';
 import HomePage from 'components/HomePage';
-import HomePage2 from 'components/HomePage2';
+import HomePageWrapper from 'components/HomePageWrapper';
 import LatestSongs2 from 'components/LatestSongs2';
 import SongModal from 'components/SongModal';
 import { Suspense } from 'react';
 import { ScrollProvider } from 'components/ScrollProvider';
+import AboutSection from 'components/AboutSection';
+import HeroSection from 'components/HeroSection';
+import Navbar from 'components/Navbar';
 
 
 type SearchParamProps = {
@@ -23,19 +26,24 @@ export default function Home( {searchParams}: SearchParamProps ) {
 
     return (
         <ScrollProvider>
-        <HomePage2>
-          <div className='w-2/3 p-5'>
+        <HomePageWrapper>
+          <HeroSection />
+          <Navbar />
+
+          <AboutSection />
+          
+          <div className='w-[90vw] md:w-[60vw] p-5 py-10'>
           <LatestSongs2 />
           </div>
 
-          <AritstsSection />
+          <ArtistsSection />
 
           <ContactSection />
-        </HomePage2>
+        </HomePageWrapper>
         
 
 
-        {showModal && <Suspense fallback={<p>loading...</p>}> <SongModal id={songId}/> </Suspense>}
+        {showModal && <Suspense fallback={<p></p>}> <SongModal id={songId}/> </Suspense>}
         </ScrollProvider>
     )
 };

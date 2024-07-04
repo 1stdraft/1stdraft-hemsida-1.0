@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { getSongs, urlFor } from "sanity-utils";
 
-import { RevealCover } from "./RevealCover"
+import { RevealCover } from "./Reveal"
 
 
 
@@ -11,9 +11,9 @@ export default async function LatestSongs2({zoom}: any) {
     const songs = await getSongs();
 
     return (
-        <div className="grid items-center gap-5">
+        <div id="latest-releases" className="grid items-center gap-5">
             {songs.map((song, index) => (
-                <div key={song._id} style={{ scale: 1 }} className={`${index % 2 ? 'justify-self-start' : 'justify-self-end'}`}>
+                <div key={song._id} className={`${index % 2 ? 'justify-self-start' : 'justify-self-end'}`}>
                  <RevealCover>
                 <div  className="shadow-md hover:shadow-lg transition">
                 <Link scroll={false} href={`/?modal=true&id=${song.slug.current}`} >
@@ -27,6 +27,8 @@ export default async function LatestSongs2({zoom}: any) {
 
                 </div>
                 </RevealCover>
+                
+
                 </div>
             ))}         
         </div>

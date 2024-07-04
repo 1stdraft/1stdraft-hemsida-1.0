@@ -1,17 +1,17 @@
 import Link from 'next/link';
 import { getArtists } from 'sanity-utils'
 
-import { RevealArtists } from './RevealArtists';
+import { RevealArtists } from './Reveal';
 
-export default async function AritstsSection({x1, x2}: any) {
+export default async function ArtistsSection({x1, x2}: any) {
     const artists = await getArtists();
 
     return (
 
-        <div className='h-screen flex flex-col justify-center items-center'>
+        <div id="artists" className='relative py-10 w-full flex flex-col justify-center items-center overflow-hidden'>
         {artists.map((artist, index) => (
             <RevealArtists key={artist._id} idx={index}>
-            <Link href={`/artists/${artist.slug.current}`} className='relative flex whitespace-nowrap gap-10 text-5xl sm:text-7xl' >
+            <Link href={`/artists/${artist.slug.current}`} className='relative flex gap-10 whitespace-nowrap text-6xl sm:text-7xl overflow-hidden' >
                 <p className=''>{artist.name}</p>
                 <p className=''>{artist.name}</p>
                 <p className=''>{artist.name}</p>

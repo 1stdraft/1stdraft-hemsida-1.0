@@ -10,16 +10,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className=''>
+      <body>
         <SmoothScroller>
           <header>
-            <Navbar />
+            {/* <Navbar /> */}
           </header>
-            <main className=''>
+            <main>
             {children}
             </main>
-          <footer>
-            <p className='text-center'>© 1stdraft 2024</p>
+          <footer className='py-5'>
+            <p className='text-center align'>© 1stdraft 2024</p>
           </footer>
         </SmoothScroller>
       </body>

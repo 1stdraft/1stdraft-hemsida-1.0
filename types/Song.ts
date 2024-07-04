@@ -7,7 +7,10 @@ export type Song = {
     title: string;
     slug: Slug;
     artist: Reference;
+    name: string;
+    artistSlug: string;
     coverImage: string;
+    imageUrl: string;
     spotify: string;
     youtube: string;
     appleMusic: string;

@@ -8,7 +8,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <header></header>
-        {children}
+        <main>
+          {children}
+        </main>
         <footer></footer>
         </body>
     </html>

@@ -72,7 +72,7 @@ export async function getSongs(): Promise<Song[]> {
     })
 
     return client.fetch(
-        groq`*[_type == "song"] | order(releasedate desc)[0..9]{
+        groq`*[_type == "song"] | order(releasedate desc)[0..4]{
             _id,
             _createdAt,
             title,
@@ -83,6 +83,24 @@ export async function getSongs(): Promise<Song[]> {
             spotify,
             releasedate,
             credits
+        }`
+    )
+    
+}
+
+export async function getSongsFromArtist(index: string): Promise<Song[]> {
+    const client = createClient({
+        projectId: projectId,
+        dataset: dataset,
+        apiVersion: apiVersion
+    })
+
+    return client.fetch(
+        groq`*[_type == "song" && references("${index}")] | order(releasedate desc){
+            title,
+            slug,
+            coverImage,
+            "imageUrl": coverImage.asset->url
         }`
     )
     
@@ -126,7 +144,8 @@ export async function getSong(slug: string): Promise<Song> {
             _createdAt,
             title,
             slug,
-            artist->,
+            "name": artist->name,
+            "artistSlug": artist->slug.current,
             coverImage,
             youtube,
             spotify,
@@ -145,12 +164,12 @@ export async function getSettings(): Promise<Setting> {
         apiVersion: apiVersion
     })
 
-    return (await client.fetch(groq`*[_type == "settings"][0]{
+    return await client.fetch(groq`*[_type == "settings"][0]{
         title,
         about,
         description,
         about
-        }`)) || {}
+        }`) || {}
 
     
 }
