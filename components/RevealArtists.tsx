@@ -1,7 +1,8 @@
 "use client"
 
-import { motion, useAnimation,useInView } from "framer-motion";
-import React, { use, useEffect, useRef } from "react";
+import { motion, useAnimation,useInView, useTransform } from "framer-motion";
+import React, { use, useContext, useEffect, useRef } from "react";
+import { useScrollContext } from "components/ScrollProvider"
 
 interface Props {
     children: JSX.Element;
@@ -9,7 +10,11 @@ interface Props {
     idx?: number;
 }
 
-export const Reveal = ({ children, width = "fit-content", idx = 1}: Props) => {
+export const RevealArtists = ({ children, width = "fit-content", idx = 1}: Props) => {
+
+  const scrollYProgress = useScrollContext();
+  // const y = useTransform(scrollYProgress.ScrollYProgress, [0,1], [0,1]);
+
 
     return (
         <div style={{ position: "relative", width}}>
@@ -30,6 +35,8 @@ export const Reveal = ({ children, width = "fit-content", idx = 1}: Props) => {
               }}
 
               custom={idx}
+
+              style={{x: scrollYProgress}}
 
             >{children}
             </motion.div>

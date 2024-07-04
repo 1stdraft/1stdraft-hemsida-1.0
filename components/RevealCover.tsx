@@ -1,3 +1,5 @@
+"use client"
+
 import { motion } from "framer-motion";
 
 interface Props {
@@ -25,7 +27,6 @@ export const RevealCover = ({ children, width = "fit-content", idx = 1}: Props) 
               whileInView="visible"
               viewport={{
                 once: true,
-                margin: "-200px"
               }}
 
               custom={idx}
