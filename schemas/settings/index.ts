@@ -2,8 +2,6 @@ import { CogIcon } from '@sanity/icons'
 import * as demo from 'lib/demo.data'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
-import OpenGraphInput from './OpenGraphInput'
-
 export default defineType({
   name: 'settings',
   title: 'Settings',
@@ -24,60 +22,14 @@ export default defineType({
       description:
         'Used both for the <meta> description tag for SEO, and the blog subheader.',
       title: 'Description',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'block',
-          options: {},
-          styles: [],
-          lists: [],
-          marks: {
-            decorators: [],
-            annotations: [
-              defineField({
-                type: 'object',
-                name: 'link',
-                fields: [
-                  {
-                    type: 'string',
-                    name: 'href',
-                    title: 'URL',
-                    validation: (rule) => rule.required(),
-                  },
-                ],
-              }),
-            ],
-          },
-        }),
-      ],
+      type: 'string',
       validation: (rule) => rule.max(155).required(),
     }),
     defineField({
-      name: 'about',
-      title: 'About',
-      description: 'About-texten',
-      type: 'array',
-      of: [
-        { type: 'block' }
-      ]
-    }),
-    defineField({
-      name: 'ogImage',
-      title: 'Open Graph Image',
-      description:
-        'Used for social media previews when linking to the index page.',
-      type: 'object',
-      components: {
-        input: OpenGraphInput as any,
-      },
-      fields: [
-        defineField({
-          name: 'title',
-          title: 'Title',
-          type: 'string',
-          initialValue: demo.ogImageTitle,
-        }),
-      ],
+      name: 'email',
+      title: 'Email',
+      description: 'Kontaktmail',
+      type: 'string'
     }),
   ],
 })

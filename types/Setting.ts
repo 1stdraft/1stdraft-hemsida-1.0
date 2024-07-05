@@ -1,9 +1,7 @@
-import { PortableTextBlock } from "next-sanity";
-
 export type Setting = {
     title: string;
-    description: PortableTextBlock[];
+    description: string;
+    email: string;
     image: string;
     instagram: string;
-    about: PortableTextBlock[];
 }

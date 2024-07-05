@@ -4,6 +4,7 @@ import { PortableText } from "next-sanity";
 import { getSong, urlFor } from "sanity-utils";
 import { RevealModal } from "./Reveal";
 import IconClose from "./IconClose";
+import ImageWithBlur from "./ImageWithBlur";
 
 
 {/* <Image alt={song.artist.name} className='rounded-full' src={urlFor(song.artist.image).width(96).height(96).url()} width={48} height={48} />
@@ -22,7 +23,7 @@ export default async function SongModal({id}: any) {
 	<div className="fixed inset-0 flex items-center justify-center z-10">
 	<RevealModal>
 		<div>
-		<Link className="fixed inset-0 bg-black opacity-75 cursor-default" href="/"
+		<Link className="fixed h-[110vh] inset-0 bg-black opacity-75 cursor-default" href="/"
 		scroll={false} /> 
 
 		<Link className="fixed z-10 top-2 left-2" href="/" scroll={false}><IconClose /> </Link>
@@ -37,12 +38,12 @@ export default async function SongModal({id}: any) {
 			{/* <Image alt={song.artist.name} className='rounded-full' src={urlFor(song.artist.image).width(96).height(96).url()} width={48} height={48} /> */}
 			{/* <div className="z-10 justify-end gap-y-1 overflow-hidden text-sm leading-2 text-gray-300"><PortableText value={song.credits}/></div>
 			</div> */}
-	<RevealModal delay={1}>
+	<RevealModal delay={0.5}>
 
 			
-			<div className="flex flex-col">
+			<div className="flex flex-col mx-3">
 				
-				<Image src={urlFor(song.coverImage).width(1080).height(1080).url()} alt={song.title} width={512} height={512} className='z-10' />
+				<ImageWithBlur src={urlFor(song.coverImage).width(1080).height(1080).url()} alt={song.title} width={512} height={512} className='z-10' />
 				<h3 className="z-10 mt-2 text-3xl font-bold text-white">{song.title}</h3>
 				<Link href={`/artists/${song.artistSlug}`} className="z-10 overflow-hidden text-md text-white">{song.name}</Link>
 

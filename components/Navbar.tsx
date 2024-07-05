@@ -35,6 +35,9 @@ export default function Navbar() {
             <button className="hover:bg-blue hover:text-white transition duration-500 px-2 " onClick={() => lenis.scrollTo("#artists", {duration: 2, easing: easeInOut, offset: -200})}>
                 artists
             </button>
+            <button className="hover:bg-blue hover:text-white transition duration-500 px-2 " onClick={() => lenis.scrollTo("#events", {duration: 2, easing: easeInOut})}>
+                events
+            </button>
             <button className="hover:bg-blue hover:text-white transition  duration-500 px-2 " onClick={() => lenis.scrollTo("#contact", {duration: 2, easing: easeInOut})}>
                 contact
             </button>

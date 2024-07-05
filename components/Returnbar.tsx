@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function Returnbar() {
     return (
         <div>
-            <Link href="/"> <Image alt="1stdraft" src={logo} height={50} /> </Link>
+            <Link href="/"> <Image alt="1stdraft" src={logo} height={40} /> </Link>
         </div>
     )
 }

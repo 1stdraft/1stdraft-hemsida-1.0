@@ -1,6 +1,5 @@
 import ArtistsSection from 'components/ArtistsSection';
 import ContactSection from 'components/ContactSection';
-import HomePage from 'components/HomePage';
 import HomePageWrapper from 'components/HomePageWrapper';
 import LatestSongs2 from 'components/LatestSongs2';
 import SongModal from 'components/SongModal';
@@ -9,11 +8,14 @@ import { ScrollProvider } from 'components/ScrollProvider';
 import AboutSection from 'components/AboutSection';
 import HeroSection from 'components/HeroSection';
 import Navbar from 'components/Navbar';
+import EventsSection from 'components/EventsSection';
 
 
 type SearchParamProps = {
   searchParams: Record<string, string> | null | undefined;
 };
+
+
 
 
 export default function Home( {searchParams}: SearchParamProps ) {
@@ -37,6 +39,8 @@ export default function Home( {searchParams}: SearchParamProps ) {
           </div>
 
           <ArtistsSection />
+
+          <EventsSection />
 
           <ContactSection />
         </HomePageWrapper>

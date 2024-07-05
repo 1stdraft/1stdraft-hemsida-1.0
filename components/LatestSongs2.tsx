@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { getSongs, urlFor } from "sanity-utils";
 
 import { RevealCover } from "./Reveal"
+import ImageWithBlur from './ImageWithBlur';
 
 
 
@@ -15,12 +16,12 @@ export default async function LatestSongs2({zoom}: any) {
             {songs.map((song, index) => (
                 <div key={song._id} className={`${index % 2 ? 'justify-self-start' : 'justify-self-end'}`}>
                  <RevealCover>
-                <div  className="shadow-md hover:shadow-lg transition">
+                <div  className="shadow-lg hover:shadow-md transition">
                 <Link scroll={false} href={`/?modal=true&id=${song.slug.current}`} >
 
                 {/* <Link scroll={false} href="/?modal=true" > */}
 
-                <Image className="w-full" src={urlFor(song.coverImage).width(1080).height(1080).url()} alt={song.title} height={300} width={300}/>
+                <ImageWithBlur className="w-full" src={urlFor(song.coverImage).width(1080).height(1080).url()} alt={song.title} height={300} width={300}/>
                 
                 </Link>  
 

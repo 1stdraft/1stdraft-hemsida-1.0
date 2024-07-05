@@ -1,11 +1,11 @@
 "use client"
 
-import { motion, useAnimation,useInView, useTransform, AnimatePresence } from "framer-motion";
+import { motion, stagger ,useInView, useTransform, AnimatePresence, animate } from "framer-motion";
 import React, { use, useEffect, useRef } from "react";
 import { useScrollContext } from "./ScrollProvider";
 
 interface Props {
-    children: JSX.Element;
+    children: React.ReactElement;
     width?: "fit-content" | "100%";
     idx?: number;
     delay?: number;
@@ -15,6 +15,14 @@ interface ParagraphProps {
   value: string;
   className: string;
   classNameWords: string;
+}
+
+interface EventProps {
+  children: React.ReactElement;
+  width?: "fit-content" | "100%";
+  className?: string;
+  key: number;
+
 }
 
 export const Reveal = ({ children, width = "fit-content", idx = 1}: Props) => {
@@ -113,6 +121,41 @@ export const RevealCover = ({ children, width = "fit-content", idx = 1}: Props) 
       </div>
   );
 };
+
+export const WhenInView = ({ children, width = "fit-content", idx = 1}: Props) => {
+
+  return (
+    <motion.div
+    initial={{opacity: 0}}
+    whileInView={{opacity: 1}}
+    viewport={{
+      once: true
+    }}>
+    
+      {children}
+    </motion.div>
+  )
+}
+
+export const EventCard = ({ children, width = "fit-content", idx = 1}: Props) => {
+
+  return (
+    <motion.div
+    key={idx}
+    initial={{opacity: 0}}
+    whileInView={{opacity: 1}}
+    viewport={{
+      once: true
+    }}
+    transition={{
+      duration: 0.75,
+      delay: idx * 0.2
+    }}>
+      {children}
+    </motion.div>
+  )
+}
+
 
 export const RevealModal = ({ children, width = "fit-content", delay=0}: Props) => {
 
