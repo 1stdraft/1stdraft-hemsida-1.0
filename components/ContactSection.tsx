@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { Reveal } from "./Reveal";
-import { getSettings } from "sanity-utils";
 import { set } from "sanity";
+import { getSettings } from "sanity-utils";
+
+import { Reveal } from "./Reveal";
 
 export default async function ContactSection() {
 
@@ -12,7 +13,7 @@ export default async function ContactSection() {
             <Reveal>
                 <div className="">
                 <h2 className="text-3xl text-white py-2">instagram</h2>
-                <Link href={`mailto:${settings.email}`} className='text-4xl text-blue bg-white px-1 m-2 hover:bg-transparent hover:text-white transition'>@1stdrft</Link>
+                <Link href="https://instagram.com/1stdrft" className='text-4xl text-blue bg-white px-1 m-2 hover:bg-transparent hover:text-white transition'>@1stdrft</Link>
                 </div>
             </Reveal>
             <Reveal>
@@ -24,7 +25,7 @@ export default async function ContactSection() {
             <Reveal>
                 <div className="">
                 <h2 className="text-3xl text-white py-2">youtube</h2>
-                <Link href={`mailto:${settings.email}`} className='text-4xl text-blue bg-white px-1 m-2 hover:bg-transparent hover:text-white transition'>1stdraftMUSIC</Link>
+                <Link href="https://youtube.com/@1stdraftmusic" className='text-4xl text-blue bg-white px-1 m-2 hover:bg-transparent hover:text-white transition'>1stdraftmusic</Link>
                 </div>
             </Reveal>
         </div>

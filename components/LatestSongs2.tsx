@@ -3,8 +3,8 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { getSongs, urlFor } from "sanity-utils";
 
-import { RevealCover } from "./Reveal"
 import ImageWithBlur from './ImageWithBlur';
+import { RevealCover } from "./Reveal"
 
 
 

@@ -1,8 +1,8 @@
 "use client"
 
+import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
 import { MotionValue, useScroll, useTransform } from "framer-motion";
 import { createContext, useContext, useRef } from "react";
-import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
 
 
 // const songRef = useRef(null);
@@ -46,7 +46,7 @@ export const ScrollProvider = ({ children }: {children: React.ReactNode}) => {
         <ReactLenis root >
         <ScrollContext.Provider value={scrollYProgress}>
             {children}
-        </ScrollContext.Provider>'
+        </ScrollContext.Provider>
         </ReactLenis>
     )
 }

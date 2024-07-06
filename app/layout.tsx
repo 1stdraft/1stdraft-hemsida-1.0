@@ -1,11 +1,9 @@
 import 'tailwindcss/tailwind.css'
+import './globals.css'
 
 import Navbar from 'components/Navbar'
-
 import type { Metadata } from 'next'
 import { getSettings } from 'sanity-utils';
-
-import './globals.css'
 
 const settings = await getSettings();
  
@@ -19,6 +17,7 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: '1stdraft',
+    description: settings.description
 
   }
 }

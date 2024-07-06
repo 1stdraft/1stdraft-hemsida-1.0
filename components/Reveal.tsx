@@ -1,7 +1,8 @@
 "use client"
 
-import { motion, stagger ,useInView, useTransform, AnimatePresence, animate } from "framer-motion";
-import React, { use, useEffect, useRef } from "react";
+import { AnimatePresence, motion , useTransform } from "framer-motion";
+import React from "react";
+
 import { useScrollContext } from "./ScrollProvider";
 
 interface Props {

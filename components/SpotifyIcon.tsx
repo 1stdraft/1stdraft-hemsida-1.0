@@ -5,7 +5,6 @@ import * as React from "react";
 function IconSpotify(props) {
   return (
     <svg
-      fill="currentColor"
       viewBox="0 0 16 16"
       height="2em"
       width="2em"

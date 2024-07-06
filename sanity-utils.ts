@@ -7,9 +7,9 @@ import {
   } from 'lib/sanity.api'
 import { createClient, groq } from 'next-sanity'
 import { Artist } from 'types/Artist'
+import { Event } from 'types/Event'
 import { Setting } from 'types/Setting'
 import { Song } from 'types/Song'
-import { Event } from 'types/Event'
 
 const urlBuilder = imageUrlBuilder({ 
     projectId: projectId,
@@ -136,13 +136,14 @@ export async function getSong(slug: string): Promise<Song> {
 export async function getEvent(slug: string): Promise<Event> {
 
     return client.fetch(
-        groq`*[_type == "event"] && slug.current == $slug {
+        groq`*[_type == "event" && slug.current == $slug][0]  {
         title,
         about,
         link,
         "slug": slug.current,
         date
-        }`
+        }`,
+        { slug }
     )
 }
 

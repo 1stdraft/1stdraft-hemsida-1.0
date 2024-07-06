@@ -2,8 +2,6 @@
 import { useLenis } from "@studio-freight/react-lenis"
 import { easeInOut, motion } from "framer-motion"
 
-import './navbar.module.css'
-
 export default function Navbar() {
 
     const lenis = useLenis(({ scroll }) => {

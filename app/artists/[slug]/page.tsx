@@ -1,22 +1,30 @@
 import { PortableText } from '@portabletext/react';
-import Returnbar from 'components/Returnbar';
-import IconSpotify from 'components/SpotifyIcon';
-import Image from 'next/image';
-import Link from 'next/link';
-import { getAllSongs, getArtist, getSongsFromArtist, urlFor } from 'sanity-utils'
-import { Artist } from 'types/Artist';
-import type { Metadata } from 'next'
-import { ScrollProvider } from 'components/ScrollProvider';
 import ImageWithBlur from 'components/ImageWithBlur';
 import IconInstagram from 'components/InstagramIcon';
+import Returnbar from 'components/Returnbar';
+import { ScrollProvider } from 'components/ScrollProvider';
+import SongModal from 'components/SongModal';
+import IconSpotify from 'components/SpotifyIcon';
 import IconYoutube from 'components/YoutubeIcon';
+import type { Metadata } from 'next'
+import Image from 'next/image';
+import Link from 'next/link';
+import { Suspense } from 'react';
+import { getAllSongs, getArtist, getSongsFromArtist, urlFor } from 'sanity-utils'
+import { Artist } from 'types/Artist';
 
 
  
 
 type Props = {
-    params: { slug: string }
+    params: { slug: string },
+    searchParams: Record<string, string> | null | undefined;
 }
+
+type SearchParamProps = {
+    searchParams: Record<string, string> | null | undefined;
+  };
+  
 
 export async function generateMetadata({params}: Props): Promise<Metadata> {
 
@@ -28,11 +36,16 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
 
 
 
-export default async function AritstPage({ params }: Props) {
+
+
+export default async function AritstPage({ params, searchParams }: Props) {
     const slug = params.slug;
     const artist = await getArtist(slug);
     const artistId = artist._id;
     const songs = await getSongsFromArtist(artistId);
+
+    const showModal = searchParams?.modal === 'true';
+    const songId = searchParams?.id;
 
     return (
         <ScrollProvider>
@@ -73,8 +86,9 @@ export default async function AritstPage({ params }: Props) {
                 
                 {songs.map((song, idx) => (
                     <div key={idx} className='object-fill'>
-                    
+                    <Link scroll={false} href={`/artists/${artist.slug.current}/?modal=true&id=${song.slug.current}`}>
                     <ImageWithBlur  alt={song.title} src={song.imageUrl} width={300} height={300} className='object-cover'/>
+                    </Link>
                     </div>
                 ))}
                 </div>
@@ -82,6 +96,8 @@ export default async function AritstPage({ params }: Props) {
         </div>
         </div>
         </div>
+        {showModal && <Suspense fallback={<p></p>}> <SongModal id={songId}/> </Suspense>}
+
         </ScrollProvider>
     )
 }

@@ -1,14 +1,14 @@
+import AboutSection from 'components/AboutSection';
 import ArtistsSection from 'components/ArtistsSection';
 import ContactSection from 'components/ContactSection';
+import EventsSection from 'components/EventsSection';
+import HeroSection from 'components/HeroSection';
 import HomePageWrapper from 'components/HomePageWrapper';
 import LatestSongs2 from 'components/LatestSongs2';
+import Navbar from 'components/Navbar';
+import { ScrollProvider } from 'components/ScrollProvider';
 import SongModal from 'components/SongModal';
 import { Suspense } from 'react';
-import { ScrollProvider } from 'components/ScrollProvider';
-import AboutSection from 'components/AboutSection';
-import HeroSection from 'components/HeroSection';
-import Navbar from 'components/Navbar';
-import EventsSection from 'components/EventsSection';
 
 
 type SearchParamProps = {

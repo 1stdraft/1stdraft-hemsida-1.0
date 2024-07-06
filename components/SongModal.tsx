@@ -2,9 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { PortableText } from "next-sanity";
 import { getSong, urlFor } from "sanity-utils";
-import { RevealModal } from "./Reveal";
+
 import IconClose from "./IconClose";
 import ImageWithBlur from "./ImageWithBlur";
+import { RevealModal } from "./Reveal";
+import IconSpotify from "./SpotifyIcon";
+import IconYoutube from "./YoutubeIcon";
 
 
 {/* <Image alt={song.artist.name} className='rounded-full' src={urlFor(song.artist.image).width(96).height(96).url()} width={48} height={48} />
@@ -44,11 +47,25 @@ export default async function SongModal({id}: any) {
 			<div className="flex flex-col mx-3">
 				
 				<ImageWithBlur src={urlFor(song.coverImage).width(1080).height(1080).url()} alt={song.title} width={512} height={512} className='z-10' />
+				<div className="flex flex-row justify-between items-center">
+				
 				<h3 className="z-10 mt-2 text-3xl font-bold text-white">{song.title}</h3>
+				<div className="flex flex-row gap-2 items-center">
+				{song.spotify 
+				?<Link href={song.spotify}><IconSpotify fill="white" /></Link>
+				: null
+				}
+				{song.youtube
+				?<Link href={song.youtube}><IconYoutube fill="white" /></Link>
+				: null
+				}
+				</div>
+				</div>
+
 				<Link href={`/artists/${song.artistSlug}`} className="z-10 overflow-hidden text-md text-white">{song.name}</Link>
 
 				<div className="mt-5">
-				<p className="z-10 gap-y-1 overflow-hidden text-sm leading-2 text-gray-300"><PortableText value={song.credits}/></p>
+				<div className="z-10 gap-y-1 overflow-hidden text-sm leading-2 text-gray-300"><PortableText value={song.credits}/></div>
 
 				</div>
 			</div>

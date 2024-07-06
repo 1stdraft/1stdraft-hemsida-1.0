@@ -1,5 +1,6 @@
 import Image from "next/image"
 import logo from 'public/1stdraft-text-blue.svg'
+
 import { RevealLogo } from "./Reveal"
 
 

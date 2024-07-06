@@ -1,7 +1,8 @@
-import { getLatestEvents } from "sanity-utils"
-import { PortableText, PortableTextBlock } from "next-sanity";
-import { EventCard, WhenInView } from "./Reveal";
 import Link from 'next/link'
+import { PortableText, PortableTextBlock } from "next-sanity";
+import { getLatestEvents } from "sanity-utils"
+
+import { EventCard, WhenInView } from "./Reveal";
 
 
 
