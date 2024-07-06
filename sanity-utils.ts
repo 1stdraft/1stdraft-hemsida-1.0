@@ -19,7 +19,8 @@ const urlBuilder = imageUrlBuilder({
 const client = createClient({
     projectId: projectId,
     dataset: dataset,
-    apiVersion: apiVersion
+    apiVersion: apiVersion,
+    useCdn: true
 })
 
 export function urlFor(source) {
