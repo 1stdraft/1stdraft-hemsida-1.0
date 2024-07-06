@@ -1,11 +1,11 @@
 import 'tailwindcss/tailwind.css'
 
 import Navbar from 'components/Navbar'
-import SmoothScroller from 'components/SmoothScroller'
-
 
 import type { Metadata } from 'next'
 import { getSettings } from 'sanity-utils';
+
+import './globals.css'
 
 const settings = await getSettings();
  

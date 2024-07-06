@@ -133,6 +133,19 @@ export async function getSong(slug: string): Promise<Song> {
     
 }
 
+export async function getEvent(slug: string): Promise<Event> {
+
+    return client.fetch(
+        groq`*[_type == "event"] && slug.current == $slug {
+        title,
+        about,
+        link,
+        "slug": slug.current,
+        date
+        }`
+    )
+}
+
 export async function getLatestEvents(): Promise<Event[]> {
 
     return client.fetch(

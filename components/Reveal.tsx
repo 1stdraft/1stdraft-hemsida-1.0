@@ -6,6 +6,7 @@ import { useScrollContext } from "./ScrollProvider";
 
 interface Props {
     children: React.ReactElement;
+    className?: string;
     width?: "fit-content" | "100%";
     idx?: number;
     delay?: number;
@@ -137,7 +138,7 @@ export const WhenInView = ({ children, width = "fit-content", idx = 1}: Props) =
   )
 }
 
-export const EventCard = ({ children, width = "fit-content", idx = 1}: Props) => {
+export const EventCard = ({ children, width = "fit-content", idx = 1, className}: Props) => {
 
   return (
     <motion.div
@@ -150,7 +151,8 @@ export const EventCard = ({ children, width = "fit-content", idx = 1}: Props) =>
     transition={{
       duration: 0.75,
       delay: idx * 0.2
-    }}>
+    }}
+    className={className}>
       {children}
     </motion.div>
   )

@@ -24,8 +24,8 @@ export default async function SongPage({ params }: Props) {
             <div className='basis-1/2'>
                 <h1 className='text-bold text-5xl pb-5'>{song.title}</h1>
                 <Link className="flex justify-start items-center" href={`/artists/${song.artist.slug.current}`}>
-                <Image alt={song.artist.name} className='rounded-full' src={urlFor(song.artist.image).width(96).height(96).url()} width={48} height={48} />
-                <h2 className='p-3'>{song.artist.name}</h2>
+                <Image alt={song.name} className='rounded-full' src={urlFor(song.artist.image).width(96).height(96).url()} width={48} height={48} />
+                <h2 className='p-3'>{song.name}</h2>
                 </Link>
                 <div>
                     

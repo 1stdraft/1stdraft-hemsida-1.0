@@ -8,6 +8,8 @@ import { Artist } from 'types/Artist';
 import type { Metadata } from 'next'
 import { ScrollProvider } from 'components/ScrollProvider';
 import ImageWithBlur from 'components/ImageWithBlur';
+import IconInstagram from 'components/InstagramIcon';
+import IconYoutube from 'components/YoutubeIcon';
 
 
  
@@ -38,7 +40,7 @@ export default async function AritstPage({ params }: Props) {
             <Returnbar />
 
         <div className='flex justify-center'>
-        <div className='w-2/3 flex flex-col'>
+        <div className='mx-2 md:w-2/3 flex flex-col'>
             <div className=''>
                     <ImageWithBlur src={urlFor(artist.image).width(1920).height(1080).url()} alt={artist.name} width={1920} height={1080} />
                     {/* <ImageWithBlur src={artist.imageUrl} alt={artist.name} width={1920} height={1080} /> */}
@@ -46,11 +48,17 @@ export default async function AritstPage({ params }: Props) {
             </div>
             <div className='flex justify-between items-center py-3'>
                 <div>
-                    <h1 className='text-bold text-5xl'>{artist.name}</h1>
+                    <h1 className='font-bold text-5xl'>{artist.name}</h1>
                 </div>
-                <div>
+                <div className='flex gap-3 px-2 items-center'>
                     <Link href={artist.spotify ? artist.spotify : '/'} className="">
                     <IconSpotify />
+                    </Link>
+                    <Link href={artist.instagram ? artist.instagram : '/'} className="">
+                    <IconInstagram />
+                    </Link>
+                    <Link href={artist.youtube ? artist.youtube : '/'} className="">
+                    <IconYoutube />
                     </Link>
                 </div>
             </div>
@@ -60,9 +68,12 @@ export default async function AritstPage({ params }: Props) {
 
                 
             </div>
+            <h3 className='mt-8 text-3xl'>releases</h3>
             <div className='flex flex-row flex-wrap gap-3 justify-evenly py-10'>
+                
                 {songs.map((song, idx) => (
                     <div key={idx} className='object-fill'>
+                    
                     <ImageWithBlur  alt={song.title} src={song.imageUrl} width={300} height={300} className='object-cover'/>
                     </div>
                 ))}
