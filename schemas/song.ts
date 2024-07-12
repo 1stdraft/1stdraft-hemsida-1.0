@@ -39,38 +39,33 @@ export default defineType({
       name: 'credits',
       title: 'Credits',
       type: 'array',
-      of: [
-        { type: 'block' }
-      ],
+      of: [{ type: 'block' }],
     }),
     defineField({
       name: 'coverImage',
       title: 'Cover Image',
-      type: 'image'
+      type: 'image',
     }),
     defineField({
       name: 'releasedate',
       title: 'Release Date',
       type: 'date',
-    //  initialValue: () => new Date().toISOString(),
+      //  initialValue: () => new Date().toISOString(),
     }),
     defineField({
       name: 'spotify',
       title: 'Spotify Link',
-      type: 'url'
-
+      type: 'url',
     }),
     defineField({
       name: 'youtube',
       title: 'Youtube Link',
-      type: 'url'
-
+      type: 'url',
     }),
     defineField({
       name: 'appleMusic',
       title: 'Apple Music Link',
-      type: 'url'
-
+      type: 'url',
     }),
     defineField({
       name: 'slug',

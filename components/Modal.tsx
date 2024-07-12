@@ -1,6 +1,5 @@
-
-import { useRouter } from "next/navigation"
-import { MouseEventHandler, useCallback, useEffect, useRef } from "react"
+import { useRouter } from 'next/navigation'
+import { MouseEventHandler, useCallback, useEffect, useRef } from 'react'
 
 export default function Modal({ children }: { children: React.ReactNode }) {
   const overlay = useRef(null)
@@ -17,19 +16,19 @@ export default function Modal({ children }: { children: React.ReactNode }) {
         if (onDismiss) onDismiss()
       }
     },
-    [onDismiss, overlay, wrapper]
+    [onDismiss, overlay, wrapper],
   )
 
   const onKeyDown = useCallback(
     (e: KeyboardEvent) => {
-      if (e.key === "Escape") onDismiss()
+      if (e.key === 'Escape') onDismiss()
     },
-    [onDismiss]
+    [onDismiss],
   )
 
   useEffect(() => {
-    document.addEventListener("keydown", onKeyDown)
-    return () => document.removeEventListener("keydown", onKeyDown)
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
   }, [onKeyDown])
 
   return (

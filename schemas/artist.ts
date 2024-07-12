@@ -11,7 +11,7 @@ export default defineType({
       name: 'name',
       title: 'Name',
       type: 'string',
-    //  validation: (rule) => rule.required(),
+      //  validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'slug',
@@ -20,7 +20,7 @@ export default defineType({
       options: {
         source: 'name',
         maxLength: 96,
-        isUnique: (value, context) => context.defaultIsUnique(value, context)
+        isUnique: (value, context) => context.defaultIsUnique(value, context),
       },
       hidden: true,
       validation: (rule) => rule.required(),
@@ -30,30 +30,28 @@ export default defineType({
       title: 'Image',
       type: 'image',
       options: { hotspot: true },
-   //   validation: (rule) => rule.required(),
+      //   validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'instagram',
       title: 'Instagram',
-      type: 'url'
+      type: 'url',
     }),
     defineField({
       name: 'spotify',
       title: 'Spotify',
-      type: 'url'
+      type: 'url',
     }),
     defineField({
       name: 'youtube',
       title: 'YouTube',
-      type: 'url'
+      type: 'url',
     }),
     defineField({
       name: 'about',
       title: 'About',
       type: 'array',
-      of: [
-        { type: 'block' }
-      ],
+      of: [{ type: 'block' }],
     }),
   ],
 })

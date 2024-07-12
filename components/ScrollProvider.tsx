@@ -1,15 +1,14 @@
-"use client"
+'use client'
 
 import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
-import { MotionValue, useScroll, useTransform } from "framer-motion";
-import { createContext, useContext, useRef } from "react";
-
+import { MotionValue, useScroll, useTransform } from 'framer-motion'
+import { createContext, useContext, useRef } from 'react'
 
 // const songRef = useRef(null);
 // const artistRef = useRef(null);
 
 // const { scrollYProgress: scrollYProgress } = useScroll();
-    
+
 // const { scrollYProgress: scrollYProgressSongs } = useScroll({
 //         target: songRef,
 //         offset: ['start end', 'end start']
@@ -27,28 +26,22 @@ import { createContext, useContext, useRef } from "react";
 
 // const y = useTransform(scrollYProgress, [0,1], ["0%", "75%"])
 
+type Scroll = MotionValue
 
-type Scroll =  MotionValue;
+const ScrollContext = createContext<MotionValue>(null)
 
+export const ScrollProvider = ({ children }: { children: React.ReactNode }) => {
+  const { scrollYProgress: scrollYProgress } = useScroll()
 
-const ScrollContext = createContext<MotionValue>(null);
+  const x = useTransform(scrollYProgress, [0, 1], [-500, 500])
 
-
-export const ScrollProvider = ({ children }: {children: React.ReactNode}) => {
-
-    const { scrollYProgress: scrollYProgress } = useScroll();
-
-    const x = useTransform(scrollYProgress, [0,1], [-500, 500])
-
-    
-    
-    return (
-        <ReactLenis root >
-        <ScrollContext.Provider value={scrollYProgress}>
-            {children}
-        </ScrollContext.Provider>
-        </ReactLenis>
-    )
+  return (
+    <ReactLenis root>
+      <ScrollContext.Provider value={scrollYProgress}>
+        {children}
+      </ScrollContext.Provider>
+    </ReactLenis>
+  )
 }
 
-export const useScrollContext = () => useContext(ScrollContext);
+export const useScrollContext = () => useContext(ScrollContext)

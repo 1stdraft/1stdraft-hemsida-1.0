@@ -19,4 +19,4 @@ const config = {
   },
 }
 
-export default withPlaiceholder(config);
+export default withPlaiceholder(config)

@@ -1,36 +1,35 @@
 import imageUrlBuilder from '@sanity/image-url'
 import {
-    apiVersion,
-    dataset,
-    DRAFT_MODE_ROUTE,
-    projectId,
-  } from 'lib/sanity.api'
+  apiVersion,
+  dataset,
+  DRAFT_MODE_ROUTE,
+  projectId,
+} from 'lib/sanity.api'
 import { createClient, groq } from 'next-sanity'
 import { Artist } from 'types/Artist'
 import { Event } from 'types/Event'
 import { Setting } from 'types/Setting'
 import { Song } from 'types/Song'
 
-const urlBuilder = imageUrlBuilder({ 
-    projectId: projectId,
-    dataset: dataset
-});
+const urlBuilder = imageUrlBuilder({
+  projectId: projectId,
+  dataset: dataset,
+})
 
 const client = createClient({
-    projectId: projectId,
-    dataset: dataset,
-    apiVersion: apiVersion,
-    useCdn: true
+  projectId: projectId,
+  dataset: dataset,
+  apiVersion: apiVersion,
+  useCdn: true,
 })
 
 export function urlFor(source) {
-    return urlBuilder.image(source);
+  return urlBuilder.image(source)
 }
 
 export async function getArtists(): Promise<Artist[]> {
-
-    return client.fetch(
-        groq`*[_type == "artist"] | order(name asc){
+  return client.fetch(
+    groq`*[_type == "artist"] | order(name asc){
             _id,
             _createdAt,
             name,
@@ -39,14 +38,13 @@ export async function getArtists(): Promise<Artist[]> {
             instagram,
             spotify,
             about
-        }`
-    )
-    
+        }`,
+  )
 }
 
 export async function getArtist(slug: string): Promise<Artist> {
-    return client.fetch(
-        groq`*[_type == "artist" && slug.current == $slug][0]{
+  return client.fetch(
+    groq`*[_type == "artist" && slug.current == $slug][0]{
             _id,
             _createdAt,
             name,
@@ -57,14 +55,13 @@ export async function getArtist(slug: string): Promise<Artist> {
             spotify,
             about[]
         }`,
-        { slug }
-    )
-    
+    { slug },
+  )
 }
 
 export async function getSongs(): Promise<Song[]> {
-    return client.fetch(
-        groq`*[_type == "song"] | order(releasedate desc)[0..4]{
+  return client.fetch(
+    groq`*[_type == "song"] | order(releasedate desc)[0..4]{
             _id,
             _createdAt,
             title,
@@ -75,28 +72,24 @@ export async function getSongs(): Promise<Song[]> {
             spotify,
             releasedate,
             credits
-        }`
-    )
-    
+        }`,
+  )
 }
 
 export async function getSongsFromArtist(index: string): Promise<Song[]> {
-
-    return client.fetch(
-        groq`*[_type == "song" && references("${index}")] | order(releasedate desc){
+  return client.fetch(
+    groq`*[_type == "song" && references("${index}")] | order(releasedate desc){
             title,
             slug,
             coverImage,
             "imageUrl": coverImage.asset->url
-        }`
-    )
-    
+        }`,
+  )
 }
 
 export async function getAllSongs(): Promise<Song[]> {
-
-    return client.fetch(
-        groq`*[_type == "song"] | order(releasedate desc){
+  return client.fetch(
+    groq`*[_type == "song"] | order(releasedate desc){
             _id,
             _createdAt,
             title,
@@ -107,16 +100,13 @@ export async function getAllSongs(): Promise<Song[]> {
             spotify,
             releasedate,
             credits
-        }`
-    )
-    
+        }`,
+  )
 }
 
-
 export async function getSong(slug: string): Promise<Song> {
-
-    return client.fetch(
-        groq`*[_type == "song" && slug.current == $slug][0]{
+  return client.fetch(
+    groq`*[_type == "song" && slug.current == $slug][0]{
             _id,
             _createdAt,
             title,
@@ -129,62 +119,52 @@ export async function getSong(slug: string): Promise<Song> {
             releasedate,
             credits[]
         }`,
-        { slug }
-    )
-    
+    { slug },
+  )
 }
 
 export async function getEvent(slug: string): Promise<Event> {
-
-    return client.fetch(
-        groq`*[_type == "event" && slug.current == $slug][0]  {
+  return client.fetch(
+    groq`*[_type == "event" && slug.current == $slug][0]  {
         title,
         about,
         link,
         "slug": slug.current,
         date
         }`,
-        { slug }
-    )
+    { slug },
+  )
 }
 
 export async function getLatestEvents(): Promise<Event[]> {
-
-    return client.fetch(
-        groq`*[_type == "event"] | order(_createdAt desc)[0..5]{
+  return client.fetch(
+    groq`*[_type == "event"] | order(_createdAt desc)[0..5]{
         title,
         about,
         link,
         "slug": slug.current,
         date
-        }`
-    )
+        }`,
+  )
 }
 
 export async function getEvents(): Promise<Event[]> {
-
-    return client.fetch(
-        groq`*[_type == "event"] | order(_createdAt desc){
+  return client.fetch(
+    groq`*[_type == "event"] | order(_createdAt desc){
         title,
         about,
         link,
         "slug": slug.current,
         date
-        }`
-    )
+        }`,
+  )
 }
 
 export async function getSettings(): Promise<Setting> {
-
-
-    return await client.fetch(groq`*[_type == "settings"][0]{
+  return await client.fetch(groq`*[_type == "settings"][0]{
         title,
         about,
         description,
         email
         }`)
-
-    
 }
-
-

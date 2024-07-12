@@ -29,7 +29,7 @@ export default defineType({
       name: 'email',
       title: 'Email',
       description: 'Kontaktmail',
-      type: 'string'
+      type: 'string',
     }),
   ],
 })

@@ -1,4 +1,3 @@
-
 export default function RootLayout({
   children,
 }: {
@@ -8,11 +7,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <header></header>
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
         <footer></footer>
-        </body>
+      </body>
     </html>
   )
 }

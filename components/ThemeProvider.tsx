@@ -1,30 +1,29 @@
-"use client"
+'use client'
 
-import { createContext, useContext } from "react";
+import { createContext, useContext } from 'react'
 
 type Theme = {
-    colors: {
-        primary: string;
-        secondary: string;
-    };
-};
+  colors: {
+    primary: string
+    secondary: string
+  }
+}
 
 const defaultTheme: Theme = {
-    colors: {
-        primary: '#00ff77',
-        secondary: '#f72600'
-    }
+  colors: {
+    primary: '#00ff77',
+    secondary: '#f72600',
+  },
 }
 
-const ThemeContext = createContext<Theme>(defaultTheme);
+const ThemeContext = createContext<Theme>(defaultTheme)
 
-
-export const ThemeProvider = ({ children }: {children: React.ReactNode}) => {
-    return (
-        <ThemeContext.Provider value={defaultTheme}>
-            {children}
-        </ThemeContext.Provider>
-    )
+export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <ThemeContext.Provider value={defaultTheme}>
+      {children}
+    </ThemeContext.Provider>
+  )
 }
 
-export const useTheme = () => useContext(ThemeContext);
+export const useTheme = () => useContext(ThemeContext)

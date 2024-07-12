@@ -7,4 +7,4 @@ import songType from 'schemas/song'
 
 const schemas = [settingsType, artistType, songType, eventType]
 
-export default schemas;
+export default schemas

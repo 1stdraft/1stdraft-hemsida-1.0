@@ -3,23 +3,22 @@ import './globals.css'
 
 import Navbar from 'components/Navbar'
 import type { Metadata } from 'next'
-import { getSettings } from 'sanity-utils';
+import { getSettings } from 'sanity-utils'
 
-const settings = await getSettings();
- 
+const settings = await getSettings()
+
 export const metadata: Metadata = {
   title: {
     template: '%s | 1stdraft',
-    default: '1stdraft'
+    default: '1stdraft',
   },
   description: settings.description,
   metadataBase: new URL('http://1stdraft.eu'),
 
   openGraph: {
     title: '1stdraft',
-    description: settings.description
-
-  }
+    description: settings.description,
+  },
 }
 
 export default function RootLayout({
@@ -30,14 +29,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-          <header>
-          </header>
-            <main>
-            {children}
-            </main>
-          <footer className='py-5'>
-            <p className='text-center align'>© 1stdraft 2024</p>
-          </footer>
+        <header></header>
+        <main>{children}</main>
+        <footer className="py-5">
+          <p className="text-center align">© 1stdraft 2024</p>
+        </footer>
       </body>
     </html>
   )

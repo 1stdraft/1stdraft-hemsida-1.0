@@ -22,9 +22,7 @@ import settingsType from 'schemas/settings'
 
 import schemas from './schemas'
 
-
-const title =
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || '1stdraft'
+const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || '1stdraft'
 
 export default defineConfig({
   basePath: '/studio',
