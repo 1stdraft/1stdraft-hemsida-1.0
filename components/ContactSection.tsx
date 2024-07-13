@@ -6,7 +6,6 @@ import { Reveal } from './Reveal'
 export default async function ContactSection() {
   const settings = await getSettings()
 
-
   return (
     <div
       id="contact"

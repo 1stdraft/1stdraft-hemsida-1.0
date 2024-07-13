@@ -13,10 +13,10 @@ import { Suspense } from 'react'
 import {
   getAllSongs,
   getArtist,
+  getArtists,
   getSongsFromArtist,
   urlFor,
 } from 'sanity-utils'
-import { Artist } from 'types/Artist'
 
 type Props = {
   params: { slug: string }
@@ -32,6 +32,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: artist.name,
   }
+}
+
+export async function generateStaticParams() {
+  const artists = await getArtists()
+
+  return artists.map((artist) => ({
+    slug: artist.slug.current,
+  }))
 }
 
 export default async function AritstPage({ params, searchParams }: Props) {
@@ -56,6 +64,7 @@ export default async function AritstPage({ params, searchParams }: Props) {
                 alt={artist.name}
                 width={1920}
                 height={1080}
+                priority={true}
               />
               {/* <ImageWithBlur src={artist.imageUrl} alt={artist.name} width={1920} height={1080} /> */}
             </div>
@@ -83,7 +92,7 @@ export default async function AritstPage({ params, searchParams }: Props) {
               <PortableText value={artist.about} />
             </div>
             <h3 className="mt-8 text-3xl">releases</h3>
-            <div className="flex flex-row flex-wrap gap-3 justify-evenly py-10">
+            <div className="flex flex-row flex-wrap gap-3 justify-between py-10">
               {songs.map((song, idx) => (
                 <div key={idx} className="object-fill">
                   <Link
@@ -107,7 +116,10 @@ export default async function AritstPage({ params, searchParams }: Props) {
       {showModal && (
         <Suspense fallback={<p></p>}>
           {' '}
-          <SongModal id={songId} />{' '}
+          <SongModal
+            id={songId}
+            href={`/artists/${artist.slug.current}`}
+          />{' '}
         </Suspense>
       )}
     </ScrollProvider>

@@ -7,9 +7,7 @@ import ImageWithBlur from './ImageWithBlur'
 import { RevealCover } from './Reveal'
 
 export default async function LatestSongs2() {
-
   const songs = await getSongs()
-
 
   return (
     <div id="latest-releases" className="grid items-center gap-5">
@@ -24,6 +22,7 @@ export default async function LatestSongs2() {
                 scroll={false}
                 href={`/?modal=true&id=${song.slug.current}`}
                 shallow={true}
+                prefetch={true}
               >
                 {/* <Link scroll={false} href="/?modal=true" > */}
 
@@ -42,5 +41,3 @@ export default async function LatestSongs2() {
     </div>
   )
 }
-
-

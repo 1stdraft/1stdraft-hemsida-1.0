@@ -6,7 +6,6 @@ import { RevealArtists } from './Reveal'
 export default async function ArtistsSection() {
   const artists = await getArtists()
 
-
   return (
     <div
       id="artists"
@@ -33,4 +32,3 @@ export default async function ArtistsSection() {
     </div>
   )
 }
-

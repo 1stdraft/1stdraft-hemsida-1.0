@@ -17,7 +17,7 @@ import { settingsPlugin, settingsStructure } from 'plugins/settings'
 import { defineConfig } from 'sanity'
 import { presentationTool } from 'sanity/presentation'
 import { structureTool } from 'sanity/structure'
-import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
+// import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 import settingsType from 'schemas/settings'
 
 import schemas from './schemas'
@@ -48,7 +48,7 @@ export default defineConfig({
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
     settingsPlugin({ type: settingsType.name }),
     // Add an image asset source for Unsplash
-    unsplashImageAsset(),
+    // unsplashImageAsset(),
     // The remaining plugins are only loaded in dev mode
     process.env.NODE_ENV !== 'production' && debugSecrets(),
     // Vision lets you query your content with GROQ in the studio

@@ -9,6 +9,7 @@ import Navbar from 'components/Navbar'
 import { ScrollProvider } from 'components/ScrollProvider'
 import SongModal from 'components/SongModal'
 import { Suspense } from 'react'
+import { getSongs } from 'sanity-utils'
 
 type SearchParamProps = {
   searchParams: Record<string, string> | null | undefined
@@ -43,7 +44,7 @@ export default function Home({ searchParams }: SearchParamProps) {
       {showModal && (
         <Suspense fallback={<p></p>}>
           {''}
-          <SongModal id={songId} />{' '}
+          <SongModal id={songId} href={'/'} />{' '}
         </Suspense>
       )}
     </ScrollProvider>

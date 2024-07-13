@@ -9,6 +9,7 @@ type Props = {
   alt: string
   width: number
   height: number
+  priority?: boolean
 }
 
 export default async function ImageWithBlur(
@@ -29,6 +30,7 @@ export default async function ImageWithBlur(
       blurDataURL={base64}
       width={props.width}
       height={props.height}
+      priority={props.priority}
     />
   )
 }

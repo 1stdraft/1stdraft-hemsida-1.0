@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { PortableText } from 'next-sanity'
 import { getSong, urlFor } from 'sanity-utils'
@@ -8,7 +7,6 @@ import ImageWithBlur from './ImageWithBlur'
 import { RevealModal } from './Reveal'
 import IconSpotify from './SpotifyIcon'
 import IconYoutube from './YoutubeIcon'
-import song from 'schemas/song'
 
 {
   /* <Image alt={song.artist.name} className='rounded-full' src={urlFor(song.artist.image).width(96).height(96).url()} width={48} height={48} />
@@ -16,7 +14,7 @@ import song from 'schemas/song'
 <Image src={urlFor(song.coverImage).width(1080).height(1080).url()} alt={song.title} width={512} height={512} classNameName=''/> */
 }
 
-export default async function SongModal({ id }: any) {
+export default async function SongModal({ id, href }: any) {
   const song = await getSong(id)
 
   return (
@@ -26,11 +24,15 @@ export default async function SongModal({ id }: any) {
           <div>
             <Link
               className="fixed h-[110vh] inset-0 bg-black opacity-75 cursor-default"
-              href="/"
+              href={href}
               scroll={false}
             />
 
-            <Link className="fixed z-10 top-2 left-2" href="/" scroll={false}>
+            <Link
+              className="fixed z-10 top-2 left-2"
+              href={href}
+              scroll={false}
+            >
               <IconClose />{' '}
             </Link>
           </div>
@@ -53,10 +55,8 @@ export default async function SongModal({ id }: any) {
               height={512}
               className="z-10"
             />
-            <div className="flex flex-row justify-between items-center">
-              <h3 className="z-10 mt-2 text-3xl font-bold text-white">
-                {song.title}
-              </h3>
+            <div className="flex flex-row mt-2 justify-between items-center">
+              <h3 className="text-3xl font-bold text-white">{song.title}</h3>
               <div className="flex flex-row gap-2 items-center">
                 {song.spotify ? (
                   <Link href={song.spotify}>
@@ -89,4 +89,3 @@ export default async function SongModal({ id }: any) {
     </>
   )
 }
-
