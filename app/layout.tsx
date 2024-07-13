@@ -13,11 +13,12 @@ export const metadata: Metadata = {
     default: '1stdraft',
   },
   description: settings.description,
-  metadataBase: new URL('http://1stdraft.eu'),
+  metadataBase: new URL('https://1stdraft.eu'),
 
   openGraph: {
     title: '1stdraft',
     description: settings.description,
+    siteName: '1stdraft'
   },
 }
 

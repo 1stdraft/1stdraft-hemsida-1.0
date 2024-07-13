@@ -16,6 +16,8 @@ export default async function ArtistsSection() {
           <Link
             href={`/artists/${artist.slug.current}`}
             className="relative flex gap-10 whitespace-nowrap text-6xl sm:text-7xl overflow-hidden"
+            shallow={true}
+            prefetch={true}
           >
             <p className="">{artist.name}</p>
             <p className="">{artist.name}</p>
