@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { getArtists } from 'sanity-utils'
 
 import { RevealArtists } from './Reveal'
+import { Suspense } from 'react'
 
 export default async function ArtistsSection() {
   const artists = await getArtists()
@@ -13,11 +14,11 @@ export default async function ArtistsSection() {
     >
       {artists.map((artist, index) => (
         <RevealArtists key={artist._id} idx={index}>
+          <Suspense>
           <Link
             href={`/artists/${artist.slug.current}`}
             className="relative flex gap-10 whitespace-nowrap text-6xl sm:text-7xl overflow-hidden"
             shallow={true}
-            prefetch={true}
           >
             <p className="">{artist.name}</p>
             <p className="">{artist.name}</p>
@@ -29,6 +30,7 @@ export default async function ArtistsSection() {
             <p className="">{artist.name}</p>
             <p className="">{artist.name}</p>
           </Link>
+          </Suspense>
         </RevealArtists>
       ))}
     </div>
