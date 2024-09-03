@@ -67,16 +67,16 @@ export const RevealArtists = ({
   return (
     <div style={{ position: 'relative', width }}>
       <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 75 },
-          visible: (idx) => ({
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.5, delay: 0.25 },
-          }),
-        }}
-        initial="hidden"
-        whileInView="visible"
+        // variants={{
+        //   hidden: { opacity: 0, y: 75 },
+        //   visible: (idx) => ({
+        //     opacity: 1,
+        //     y: 0,
+        //     transition: { duration: 0.5, delay: 0.25 },
+        //   }),
+        // }}
+        // initial="hidden"
+        // whileInView="visible"
         viewport={{
           once: true,
         }}

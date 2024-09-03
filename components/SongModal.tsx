@@ -54,7 +54,7 @@ export default async function SongModal({ id, href }: any) {
               alt={song.title}
               width={512}
               height={512}
-              className="z-10 size-[50vh]"
+              className="z-10 size-[40vh]"
             />
             <div className="flex flex-row mt-2 justify-between items-center">
               <h3 className="text-3xl font-bold text-white">{song.title}</h3>

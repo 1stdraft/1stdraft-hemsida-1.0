@@ -36,11 +36,11 @@ export const ScrollProvider = ({ children }: { children: React.ReactNode }) => {
   const x = useTransform(scrollYProgress, [0, 1], [-500, 500])
 
   return (
-    <ReactLenis root>
+    // <ReactLenis root>
       <ScrollContext.Provider value={scrollYProgress}>
         {children}
       </ScrollContext.Provider>
-    </ReactLenis>
+    // </ReactLenis>
   )
 }
 

@@ -7,7 +7,6 @@ import SongModal from 'components/SongModal'
 import IconSpotify from 'components/SpotifyIcon'
 import IconYoutube from 'components/YoutubeIcon'
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import { Suspense } from 'react'
 import {
@@ -17,6 +16,7 @@ import {
   getSongsFromArtist,
   urlFor,
 } from 'sanity-utils'
+import React from 'react'
 
 type Props = {
   params: { slug: string }

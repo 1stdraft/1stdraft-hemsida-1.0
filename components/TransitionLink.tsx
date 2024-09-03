@@ -2,7 +2,7 @@
 
 import Link, {LinkProps} from 'next/link'
 import { useRouter } from 'next/navigation'
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useEffect, useTransition } from 'react'
 
 interface TransitionLinkProps extends LinkProps {
     children: ReactNode;
@@ -33,6 +33,8 @@ export const TransitionLink = ({
     router.push(href);
     await sleep(500);
     body?.classList.remove("page-transition")
+
+
 
   }
 
