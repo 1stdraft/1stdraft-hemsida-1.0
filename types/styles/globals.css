@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    color: var(--foreground);
+    /* background: linear-gradient(
+        to bottom,
+        transparent,
+        rgb(var(--background-end-rgb))
+      )
+      rgb(var(--background-start-rgb)); */
+    background-color: var(--background);
+  
+
+  }
+  
+  .page-transition {
+    opacity: 0;
+    filter: blur(12px);
+  }
+  

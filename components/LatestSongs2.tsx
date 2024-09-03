@@ -22,13 +22,12 @@ export default async function LatestSongs2() {
                 scroll={false}
                 href={`/?modal=true&id=${song.slug.current}`}
                 shallow={true}
-                prefetch={true}
               >
                 {/* <Link scroll={false} href="/?modal=true" > */}
 
                 <ImageWithBlur
                   className="w-full"
-                  src={urlFor(song.coverImage).width(1080).height(1080).url()}
+                  src={urlFor(song.coverImage).width(300).height(300).url()}
                   alt={song.title}
                   height={300}
                   width={300}

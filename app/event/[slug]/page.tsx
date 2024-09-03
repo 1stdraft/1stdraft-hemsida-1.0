@@ -2,7 +2,7 @@ import Returnbar from 'components/Returnbar'
 import { ScrollProvider } from 'components/ScrollProvider'
 import Link from 'next/link'
 import { PortableText } from 'next-sanity'
-import { getEvent } from 'sanity-utils'
+import { getEvent, getEvents } from 'sanity-utils'
 
 type Props = {
   params: { slug: string }
@@ -15,6 +15,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: event.title,
   }
+}
+
+export async function generateStaticParams() {
+  const events = await getEvents()
+
+  return events.map((event) => ({
+    slug: event.slug.current,
+  }))
 }
 
 export default async function EventPage({ params }: Props) {

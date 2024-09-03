@@ -44,7 +44,8 @@ export default function Home({ searchParams }: SearchParamProps) {
       {showModal && (
         <Suspense fallback={<p></p>}>
           {''}
-          <SongModal id={songId} href={'/'} />{' '}
+          <SongModal id={songId} href={'/'} />
+          {' '}
         </Suspense>
       )}
     </ScrollProvider>

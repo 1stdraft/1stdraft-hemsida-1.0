@@ -1,6 +1,7 @@
 import { getArtists } from 'sanity-utils'
 
 import { RevealArtists } from './Reveal'
+import { TransitionLink } from './TransitionLink'
 
 export default async function ArtistsSection() {
   const artists = await getArtists()
@@ -12,7 +13,7 @@ export default async function ArtistsSection() {
     >
       {artists.map((artist, index) => (
         <RevealArtists key={artist._id} idx={index}>
-          <a
+          <TransitionLink
             href={`/artists/${artist.slug.current}`}
             className="relative flex gap-10 whitespace-nowrap text-6xl sm:text-7xl overflow-hidden"
           >
@@ -25,7 +26,7 @@ export default async function ArtistsSection() {
             <p className="">{artist.name}</p>
             <p className="">{artist.name}</p>
             <p className="">{artist.name}</p>
-          </a>
+          </TransitionLink>
         </RevealArtists>
       ))}
     </div>

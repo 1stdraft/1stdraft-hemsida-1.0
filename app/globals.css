@@ -5,7 +5,19 @@
 @layer base {
   html {
     background-color: white;
+      opacity: 1;
+      filter: blur(0px);
+      transition-property: opacity, filter;
+      transition-timing-function: ease-in-out;
+      transition-duration: 500ms;
+
   }
+
+}
+
+.page-transition {
+  opacity: 0;
+  filter: blur(12px);
 }
 
 /* @layer utilities{

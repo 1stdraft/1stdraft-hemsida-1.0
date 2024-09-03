@@ -6,6 +6,7 @@ import IconClose from './IconClose'
 import ImageWithBlur from './ImageWithBlur'
 import { RevealModal } from './Reveal'
 import IconSpotify from './SpotifyIcon'
+import { TransitionLink } from './TransitionLink'
 import IconYoutube from './YoutubeIcon'
 
 {
@@ -19,7 +20,7 @@ export default async function SongModal({ id, href }: any) {
 
   return (
     <>
-      <div className="fixed inset-0 flex items-center justify-center z-10">
+      <div className="fixed inset-0 flex items-center justify-center z-10 overflow-visible">
         <RevealModal>
           <div>
             <Link
@@ -49,11 +50,11 @@ export default async function SongModal({ id, href }: any) {
         <RevealModal delay={0.5}>
           <div className="flex flex-col mx-3">
             <ImageWithBlur
-              src={urlFor(song.coverImage).width(1080).height(1080).url()}
+              src={urlFor(song.coverImage).width(512).height(512).url()}
               alt={song.title}
               width={512}
               height={512}
-              className="z-10"
+              className="z-10 size-[50vh]"
             />
             <div className="flex flex-row mt-2 justify-between items-center">
               <h3 className="text-3xl font-bold text-white">{song.title}</h3>
@@ -71,12 +72,12 @@ export default async function SongModal({ id, href }: any) {
               </div>
             </div>
 
-            <Link
+            <TransitionLink
               href={`/artists/${song.artistSlug}`}
               className="z-10 overflow-hidden text-md text-white"
             >
               {song.name}
-            </Link>
+            </TransitionLink>
 
             <div className="mt-5">
               <div className="z-10 gap-y-1 overflow-hidden text-sm leading-2 text-gray-300">
