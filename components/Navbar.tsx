@@ -22,46 +22,50 @@ export default function Navbar() {
       className="navbar bg-white flex z-10 justify-center sticky top-0 text-lg font-semibold w-full overflow-hidden"
     >
       <div className="flex">
-        <button
+        <a
+          href='#latest-releases'
           className="navbar-item hover:bg-blue hover:text-white transition duration-500 px-2 "
-          onClick={() =>
-            lenis.scrollTo('#latest-releases', {
-              duration: 2,
-              easing: easeInOut,
-              offset: -30,
-            })
-          }
+          // onClick={() =>
+          //   lenis.scrollTo('#latest-releases', {
+          //     duration: 2,
+          //     easing: easeInOut,
+          //     offset: -30,
+          //   })
+          // }
         >
           latest releases
-        </button>
-        <button
+        </a>
+        <a
+          href='#artists'
           className="navbar-item hover:bg-blue hover:text-white transition duration-500 px-2 "
-          onClick={() =>
-            lenis.scrollTo('#artists', {
-              duration: 2,
-              easing: easeInOut,
-              offset: -200,
-            })
-          }
+          // onClick={() =>
+          //   lenis.scrollTo('#artists', {
+          //     duration: 2,
+          //     easing: easeInOut,
+          //     offset: -200,
+          //   })
+          // }
         >
           artists
-        </button>
-        <button
+        </a>
+        <a
+          href='#events'
           className="navbar-item hover:bg-blue hover:text-white transition duration-500 px-2 "
-          onClick={() =>
-            lenis.scrollTo('#events', { duration: 2, easing: easeInOut })
-          }
+          // onClick={() =>
+          //   lenis.scrollTo('#events', { duration: 2, easing: easeInOut })
+          // }
         >
           events
-        </button>
-        <button
+        </a>
+        <a
+          href='#contact'
           className="navbar-item hover:bg-blue hover:text-white transition  duration-500 px-2 "
-          onClick={() =>
-            lenis.scrollTo('#contact', { duration: 2, easing: easeInOut })
-          }
+          // onClick={() =>
+          //   lenis.scrollTo('#contact', { duration: 2, easing: easeInOut })
+          // }
         >
           contact
-        </button>
+        </a>
       </div>
     </motion.div>
     // </Reveal>

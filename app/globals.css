@@ -5,11 +5,13 @@
 @layer base {
   html {
     background-color: white;
-      opacity: 1;
-      filter: blur(0px);
-      transition-property: opacity, filter;
-      transition-timing-function: ease-in-out;
-      transition-duration: 500ms;
+    opacity: 1;
+    filter: blur(0px);
+    transition-property: opacity, filter;
+    transition-timing-function: ease-in-out;
+    transition-duration: 500ms;
+    
+    scroll-behavior: smooth;
 
   }
 
@@ -29,3 +31,16 @@
 
     }
 } */
+
+#latest-releases {
+  scroll-margin-top: 100px;
+}
+
+#artists {
+  scroll-margin-top: 100px;
+}
+
+
+#events {
+  scroll-margin-top: 100px;
+}

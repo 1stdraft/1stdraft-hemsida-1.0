@@ -25,10 +25,12 @@ export async function generateStaticParams() {
   }))
 }
 
+
 export default async function EventPage({ params }: Props) {
   const slug = params.slug
 
   const event = await getEvent(slug)
+
 
   return (
     <ScrollProvider>
