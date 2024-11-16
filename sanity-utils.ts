@@ -98,6 +98,7 @@ export async function getAllSongs(): Promise<Song[]> {
             coverImage,
             youtube,
             spotify,
+            appleMusic,
             releasedate,
             credits
         }`,
@@ -116,6 +117,7 @@ export async function getSong(slug: string): Promise<Song> {
             coverImage,
             youtube,
             spotify,
+            appleMusic,
             releasedate,
             credits[]
         }`,

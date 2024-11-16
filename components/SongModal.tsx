@@ -8,6 +8,7 @@ import { RevealModal } from './Reveal'
 import IconSpotify from './SpotifyIcon'
 import { TransitionLink } from './TransitionLink'
 import IconYoutube from './YoutubeIcon'
+import IconApplemusic from './IconAppleMusic'
 
 {
   /* <Image alt={song.artist.name} className='rounded-full' src={urlFor(song.artist.image).width(96).height(96).url()} width={48} height={48} />
@@ -48,7 +49,7 @@ export default async function SongModal({ id, href }: any) {
         {/* <div className="z-10 justify-end gap-y-1 overflow-hidden text-sm leading-2 text-gray-300"><PortableText value={song.credits}/></div>
 			</div> */}
         <RevealModal delay={0.5}>
-          <div className="flex flex-col mx-3">
+          <div className="flex flex-col mx-3 w-[40vh]">
             <ImageWithBlur
               src={urlFor(song.coverImage).width(512).height(512).url()}
               alt={song.title}
@@ -56,9 +57,9 @@ export default async function SongModal({ id, href }: any) {
               height={512}
               className="z-10 size-[40vh]"
             />
-            <div className="flex flex-row mt-2 justify-between items-center">
+            <div className="flex flex-row mt-2 justify-between items-center text-balance">
               <h3 className="text-3xl font-bold text-white">{song.title}</h3>
-              <div className="flex flex-row gap-2 items-center">
+              <div className="flex flex-row gap-2 pl-4 items-center">
                 {song.spotify ? (
                   <Link href={song.spotify}>
                     <IconSpotify fill="white" />
@@ -67,6 +68,11 @@ export default async function SongModal({ id, href }: any) {
                 {song.youtube ? (
                   <Link href={song.youtube}>
                     <IconYoutube fill="white" />
+                  </Link>
+                ) : null}
+                {song.appleMusic ? (
+                  <Link href={song.appleMusic}>
+                    <IconApplemusic fill="white" />
                   </Link>
                 ) : null}
               </div>
