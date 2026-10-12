@@ -13,7 +13,7 @@ export default function AboutSection() {
         <WordReveal
           className="flex flex-wrap justify-center font-bold text-xl sm:text-5xl text-white"
           classNameWords="mx-2 md:my-2"
-          value="1stdraft is an independent record label based in Stockholm. It was founded in 2024 with the goal to diversify today's music scene and help new talents reach their audience."
+          value="1stdraft is an independent record label based in Stockholm. It was founded in 2024 with the goal of diversifying today’s music scene and helping new talent reach their audience."
         />
       </div>
     </div>
